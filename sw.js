@@ -1,5 +1,5 @@
 // 앱 껍데기 저장(오프라인 대비) · 지도 사진은 항상 인터넷에서
-const C = 'ridge-2026-10-30_1058';
+const C = 'ridge-2026-10-30_1125';
 const SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(C).then(c => c.addAll(SHELL))); });
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())));
